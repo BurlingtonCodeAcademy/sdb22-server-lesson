@@ -1,9 +1,11 @@
+require("dotenv").config()
+
 const Express = require("express")
 const app = Express()
 
 const mainRoutes = require("./controllers/mainRoutes")
 
-const PORT = 4000
+const PORT = process.env.PORT || 4000
 
 /* 
     Express handles server process and route management (thru controllers)

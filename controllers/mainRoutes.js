@@ -24,7 +24,7 @@ router.get("/:id", (req, res) => {
     
     res.status(200).json({
         status: `Success`,
-        id
+        id,
     })
 })
 
