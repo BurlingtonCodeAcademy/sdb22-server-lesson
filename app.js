@@ -2,6 +2,7 @@ require("dotenv").config()
 
 const Express = require("express")
 const app = Express()
+const cors = require("cors")
 
 const mainRoutes = require("./controllers/mainRoutes")
 
@@ -32,7 +33,9 @@ const logTime = (req, res, next) => {
     next()
 }
 
+
 // Express.json() parses our json request object.
+app.use(cors())
 app.use(Express.json())
 app.use(Express.urlencoded())
 app.use(logTime)
