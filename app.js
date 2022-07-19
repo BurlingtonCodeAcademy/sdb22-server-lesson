@@ -4,6 +4,23 @@ const Express = require("express")
 const app = Express()
 const cors = require("cors")
 
+// 1. import mongoose into your main server file
+const mongoose = require("mongoose")
+
+// 2. create db connection
+mongoose.connect("mongodb://localhost:27017/car-db", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+
+// 3. init the database through the connection constructor
+const db = mongoose.connection
+
+// 4. binds error messages to the connection variable
+// prints if an error occurs
+db.on("error", console.error.bind(console, "connection-error"))
+
+
 const mainRoutes = require("./controllers/mainRoutes")
 
 const PORT = process.env.PORT || 4000
